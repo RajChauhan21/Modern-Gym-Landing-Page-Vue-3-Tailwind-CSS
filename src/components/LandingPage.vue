@@ -1,5 +1,6 @@
 <script>
 import NavBar from './NavBar.vue';
+import bob_image from '../assets/bobs_gym.png'
 
 export default {
     components: {
@@ -12,7 +13,8 @@ export default {
             satisfaction: 0,
             programs: 0,
             access: 0,
-            started: false
+            started: false,
+            image: bob_image
         }
     },
     mounted() {
@@ -82,24 +84,45 @@ export default {
     <div class="bg-gray-950 text-white font-sans">
         <NavBar />
         <!-- HERO -->
-        <section class="relative min-h-screen flex items-center justify-center text-center px-6">
-            <div
-                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74')] bg-cover bg-center opacity-30">
+        <!-- HERO -->
+        <section class="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden">
+            <!-- Background diagonal shape (desktop only) -->
+            <div class="absolute top-0 right-0 w-full h-full lg:w-2/3 lg:h-full hidden lg:block">
+                <div class="absolute inset-0 bg-red-600/10"
+                    style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);"></div>
             </div>
 
-            <div class="relative max-w-4xl">
+            <!-- Image - Desktop Version (Right Side with Diagonal Clip) -->
+            <div class="absolute top-0 right-0 w-full lg:w-3/5 h-full hidden lg:block">
+                <div class="relative w-full h-full">
+                    <img :src="image" alt="Bob's Gym" class="w-full h-full object-cover"
+                        style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);">
+                    <!-- Gradient overlay for text contrast -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-gray-950 via-transparent to-transparent"></div>
+                </div>
+            </div>
+
+            <!-- Image - Mobile Version (Full background) -->
+            <div class="absolute inset-0 lg:hidden">
+                <img :src="image" alt="Bob's Gym" class="w-full h-full object-cover object-[60%_center]">
+                <!-- Dark overlay for better text readability -->
+                <div class="absolute inset-0 bg-gray-950/70"></div>
+            </div>
+
+            <!-- Text Content - Centered on Mobile, Left on Desktop -->
+            <div class="relative z-10 max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
                     Transform Your <span class="text-red-500">Body</span>
                 </h1>
 
-                <p class="mt-6 text-lg text-gray-300">
+                <p class="mt-6 text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
                     Train with the best coaches and world-class equipment.
                     Start your fitness journey today.
                 </p>
 
-                <div class="mt-8 flex justify-center gap-4">
+                <div class="mt-8 flex gap-4 justify-center lg:justify-start">
                     <button @click="joinNow('Hello, I want to join IronCore Gym. Please share membership details.')"
-                        class="px-8 py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition">
+                        class="px-8 py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition shadow-lg">
                         Join Now
                     </button>
 
@@ -112,7 +135,7 @@ export default {
         </section>
 
         <!-- FEATURES -->
-        <section class="py-20 px-6 max-w-7xl mx-auto">
+        <section class="py-8 px-6 max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-14">Our Programs</h2>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -190,7 +213,8 @@ export default {
 
             <div class="grid md:grid-cols-3 gap-10">
 
-                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                <div data-aos="fade-up"
+                    class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
                     <h3 class="text-xl font-semibold text-red-500 mb-3">
                         Modern Equipment
                     </h3>
@@ -199,7 +223,8 @@ export default {
                     </p>
                 </div>
 
-                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                <div data-aos="fade-up"
+                    class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
                     <h3 class="text-xl font-semibold text-red-500 mb-3">
                         Flexible Membership
                     </h3>
@@ -208,7 +233,8 @@ export default {
                     </p>
                 </div>
 
-                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                <div data-aos="fade-up"
+                    class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
                     <h3 class="text-xl font-semibold text-red-500 mb-3">
                         Friendly Environment
                     </h3>
