@@ -1,0 +1,411 @@
+<script>
+import NavBar from './NavBar.vue';
+
+export default {
+    components: {
+        NavBar
+    },
+    data() {
+        return {
+            message: '',
+            members: 0,
+            satisfaction: 0,
+            programs: 0,
+            access: 0,
+            started: false
+        }
+    },
+    mounted() {
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting && !this.started) {
+                    this.started = true
+                    this.startCounters()
+                }
+
+            })
+
+        }, { threshold: 0.5 })
+
+        observer.observe(this.$refs.statsSection)
+    },
+    methods: {
+        startCounters() {
+            this.animateValue("members", 2500, 2000)
+            this.animateValue("satisfaction", 95, 2000)
+            this.animateValue("programs", 150, 2000)
+            this.animateValue("access", 24, 2000)
+        },
+        animateValue(key, end, duration) {
+
+            let start = 0
+            const increment = end / (duration / 16)
+
+            const counter = setInterval(() => {
+
+                start += increment
+
+                if (start >= end) {
+                    this[key] = end
+                    clearInterval(counter)
+                } else {
+                    this[key] = Math.floor(start)
+                }
+
+            }, 16)
+
+        },
+        joinNow(message) {
+            const phone = "919321834217"
+            // const message = "Hello, I want to join IronCore Gym. Please share membership details."
+            this.message = message;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+
+            window.open(url, "_blank")
+        },
+        scrollToPlans() {
+            const section = document.getElementById("plans")
+
+            if (section) {
+                section.scrollIntoView({
+                    behavior: "smooth"
+                })
+            }
+        }
+    }
+}
+</script>
+
+<template>
+    <div class="bg-gray-950 text-white font-sans">
+        <NavBar />
+        <!-- HERO -->
+        <section class="relative min-h-screen flex items-center justify-center text-center px-6">
+            <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74')] bg-cover bg-center opacity-30">
+            </div>
+
+            <div class="relative max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                    Transform Your <span class="text-red-500">Body</span>
+                </h1>
+
+                <p class="mt-6 text-lg text-gray-300">
+                    Train with the best coaches and world-class equipment.
+                    Start your fitness journey today.
+                </p>
+
+                <div class="mt-8 flex justify-center gap-4">
+                    <button @click="joinNow('Hello, I want to join IronCore Gym. Please share membership details.')"
+                        class="px-8 py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition">
+                        Join Now
+                    </button>
+
+                    <button @click="scrollToPlans"
+                        class="px-8 py-3 border border-gray-400 rounded-xl hover:bg-gray-800 transition">
+                        View Plans
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-20 px-6 max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-14">Our Programs</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div data-aos="fade-up" class="bg-gray-900 p-8 rounded-2xl hover:scale-105 transition">
+                    <h3 class="text-xl font-semibold mb-3 text-red-500">
+                        Strength Training
+                    </h3>
+                    <p class="text-gray-400">
+                        Build muscle and increase strength with our expert guided workouts.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" class="bg-gray-900 p-8 rounded-2xl hover:scale-105 transition">
+                    <h3 class="text-xl font-semibold mb-3 text-red-500">
+                        Cardio Fitness
+                    </h3>
+                    <p class="text-gray-400">
+                        Improve endurance with HIIT, cycling and cardio training programs.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" class="bg-gray-900 p-8 rounded-2xl hover:scale-105 transition">
+                    <h3 class="text-xl font-semibold mb-3 text-red-500">
+                        Personal Coaching
+                    </h3>
+                    <p class="text-gray-400">
+                        Get one-on-one guidance from certified trainers.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TRAINERS -->
+        <!-- <section class="py-20 bg-gray-900 px-6">
+            <h2 class="text-4xl font-bold text-center mb-14">Expert Trainers</h2>
+
+            <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+
+                <div data-aos="zoom-in" class="text-center">
+                    <img class="w-48 h-48 mx-auto rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" />
+                    <h3 class="mt-4 text-xl font-semibold">Alex Carter</h3>
+                    <p class="text-gray-400">Strength Coach</p>
+                </div>
+
+                <div data-aos="zoom-in" class="text-center">
+                    <img class="w-48 h-48 mx-auto rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" />
+                    <h3 class="mt-4 text-xl font-semibold">Sophie Lee</h3>
+                    <p class="text-gray-400">Yoga Trainer</p>
+                </div>
+
+                <div data-aos="zoom-in" class="text-center">
+                    <img class="w-48 h-48 mx-auto rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1546484959-f4b3a0f0e3c9" />
+                    <h3 class="mt-4 text-xl font-semibold">Mark Stone</h3>
+                    <p class="text-gray-400">Cardio Expert</p>
+                </div>
+
+            </div>
+        </section> -->
+
+        <section class="py-20 bg-gray-900 px-6">
+
+            <div class="max-w-7xl mx-auto text-center mb-14">
+                <h2 class="text-4xl font-bold">
+                    Why Choose <span class="text-red-500">Our Gym</span>
+                </h2>
+                <p class="text-gray-400 mt-2">
+                    We provide the best environment to achieve your fitness goals.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                    <h3 class="text-xl font-semibold text-red-500 mb-3">
+                        Modern Equipment
+                    </h3>
+                    <p class="text-gray-400">
+                        Train with the latest gym equipment for maximum results.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                    <h3 class="text-xl font-semibold text-red-500 mb-3">
+                        Flexible Membership
+                    </h3>
+                    <p class="text-gray-400">
+                        Choose membership plans that fit your lifestyle.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" class="bg-gray-950 p-8 rounded-2xl text-center hover:scale-110 transition duration-300">
+                    <h3 class="text-xl font-semibold text-red-500 mb-3">
+                        Friendly Environment
+                    </h3>
+                    <p class="text-gray-400">
+                        A motivating community that keeps you consistent.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- PRICING -->
+        <section id="plans" class="py-20 px-6 max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14">Membership Plans</h2>
+
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
+                    <h3 class="text-xl font-semibold">Basic</h3>
+                    <p class="text-4xl font-bold mt-4">₹999</p>
+                    <p class="text-gray-400 mt-2">per month</p>
+
+                    <ul class="mt-6 space-y-2 text-gray-400">
+                        <li>Gym Access</li>
+                        <li>Locker Room</li>
+                        <li>Basic Equipment</li>
+                    </ul>
+
+                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Basic Plan.')"
+                        class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div data-aos="fade-right" class="bg-red-500 text-black p-10 rounded-2xl scale-105">
+                    <h3 class="text-xl font-semibold">Pro</h3>
+                    <p class="text-4xl font-bold mt-4">₹1999</p>
+                    <p class="mt-2">per month</p>
+
+                    <ul class="mt-6 space-y-2">
+                        <li>Everything in Basic</li>
+                        <li>Group Classes</li>
+                        <li>Trainer Support</li>
+                    </ul>
+
+                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Pro Plan.')"
+                        class="mt-6 w-full py-3 bg-black text-white rounded-xl">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
+                    <h3 class="text-xl font-semibold">Elite</h3>
+                    <p class="text-4xl font-bold mt-4">₹3999</p>
+                    <p class="text-gray-400 mt-2">per month</p>
+
+                    <ul class="mt-6 space-y-2 text-gray-400">
+                        <li>Everything in Pro</li>
+                        <li>Personal Trainer</li>
+                        <li>Diet Plan</li>
+                    </ul>
+
+                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Elite Plan.')"
+                        class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
+                        Choose Plan
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 bg-gradient-to-r from-red-600 to-red-500 text-center px-6">
+            <h2 class="text-4xl font-bold">
+                Ready to Start Your Fitness Journey?
+            </h2>
+
+            <p class="mt-4 text-lg">
+                Join today and transform your life.
+            </p>
+
+            <button class="mt-8 px-10 py-4 bg-black rounded-xl hover:bg-gray-900">
+                Get Started
+            </button>
+        </section>
+
+        <!-- stats section -->
+        <section data-aos="fade-up" id="stats" ref="statsSection"
+            class="bg-gray-950 py-16 px-6 border-y border-gray-800">
+
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+
+                <div data-aos="fade-up" data-aos-delay="100" class="hover:scale-105 transition duration-300">
+                    <h3 class="text-4xl font-bold text-red-500">{{ members }}</h3>
+                    <p class="text-gray-400 mt-2">Active Members</p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100" class="hover:scale-105 transition duration-300">
+                    <h3 class="text-4xl font-bold text-red-500">{{ satisfaction }}%</h3>
+                    <p class="text-gray-400 mt-2">Member Satisfaction</p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100" class="hover:scale-105 transition duration-300">
+                    <h3 class="text-4xl font-bold text-red-500">{{ programs }}</h3>
+                    <p class="text-gray-400 mt-2">Training Programs</p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100" class="hover:scale-105 transition duration-300">
+                    <h3 class="text-4xl font-bold text-red-500">{{ access }}</h3>
+                    <p class="text-gray-400 mt-2">Hour Access</p>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- map section -->
+
+        <section class="bg-gray-900 py-20 px-6">
+
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Section Heading -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-white">
+                        Visit <span class="text-red-500">BOB'S Gym</span>
+                    </h2>
+                    <p class="text-gray-400 mt-3">
+                        Come train with us and start your fitness journey today.
+                    </p>
+                </div>
+
+                <!-- Content Grid -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                    <!-- LEFT SIDE INFO -->
+                    <div class="space-y-6">
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-red-500">Address</h3>
+                            <p class="text-gray-400 mt-2">
+                                BOB'S Gym, New Panvel East,<br>
+                                Navi Mumbai, Maharashtra, India
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-red-500">Phone</h3>
+                            <p class="text-gray-400 mt-2">
+                                +91 98765 43210
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-red-500">Email</h3>
+                            <p class="text-gray-400 mt-2">
+                                contact@bobsgym.com
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-red-500">Opening Hours</h3>
+                            <p class="text-gray-400 mt-2">
+                                Monday – Saturday: 6:00 AM – 10:00 PM <br>
+                                Sunday: 8:00 AM – 2:00 PM
+                            </p>
+                        </div>
+
+                        <!-- Directions Button -->
+                        <a href="https://maps.app.goo.gl/8K7Qytrx2PXBNr3aA" target="_blank"
+                            class="inline-block mt-4 bg-red-500 px-6 py-3 rounded-lg hover:bg-red-600 transition">
+                            Get Directions
+                        </a>
+
+                    </div>
+
+                    <!-- RIGHT SIDE MAP -->
+                    <div class="rounded-3xl overflow-hidden border border-gray-800 shadow-2xl">
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.5068393027304!2d73.1202608739489!3d18.99737515443858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e950c430ca65%3A0x3e22be51fb0b7fdb!2sBOB&#39;S%20GYM!5e0!3m2!1sen!2sin!4v1773139826140!5m2!1sen!2sin"
+                            class="w-full h-[420px]" loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- FOOTER -->
+        <footer class="py-10 text-center text-gray-500 border-t border-gray-800">
+            © 2026 IronCore Gym. All rights reserved.
+        </footer>
+
+    </div>
+</template>
+
+
+<style></style>
