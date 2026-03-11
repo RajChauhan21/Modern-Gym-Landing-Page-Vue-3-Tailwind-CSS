@@ -263,7 +263,7 @@ export default {
                         <li>Includes Cardio</li>
                     </ul>
 
-                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Day-Have-A-Look Plan.')"
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Day Have-A-Look Plan.')"
                         class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
                         Choose Plan
                     </button>
