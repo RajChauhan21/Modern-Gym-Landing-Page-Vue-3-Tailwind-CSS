@@ -2,7 +2,7 @@
   <div class="bg-gray-950 text-white min-h-screen">
 
     <!-- HEADER -->
-    <section class="py-24 text-center">
+    <section class="py-16 text-center">
       <h1 class="text-5xl font-bold">
         Our <span class="text-red-500">Services</span>
       </h1>

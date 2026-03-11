@@ -14,35 +14,29 @@
     <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16">
 
       <!-- FORM -->
-      <form class="bg-gray-900 p-10 rounded-2xl space-y-6">
+      <form class="bg-gray-900 p-10 rounded-2xl space-y-6" @submit.prevent="sendWhatsApp">
 
         <div>
           <label class="text-sm text-gray-400">Name</label>
-          <input
-            type="text"
-            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500"
-          />
+          <input v-model="name" type="text"
+            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500" />
         </div>
 
         <div>
           <label class="text-sm text-gray-400">Email</label>
-          <input
-            type="email"
-            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500"
-          />
+          <input v-model="email" type="email"
+            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500" />
         </div>
 
         <div>
           <label class="text-sm text-gray-400">Message</label>
-          <textarea
-            rows="4"
-            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500"
-          ></textarea>
+          <textarea v-model="message" rows="4"
+            class="w-full mt-2 p-3 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-red-500"></textarea>
         </div>
 
-        <button
-          class="w-full py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition"
-        >
+        <p v-if="error" class="text-red-500 text-sm">{{ error }}</p>
+
+        <button type="submit" class="w-full py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition">
           Send Message
         </button>
 
@@ -54,23 +48,25 @@
         <div>
           <h3 class="text-xl font-semibold mb-2">Address</h3>
           <p class="text-gray-400">
-            123 Fitness Street, Mumbai, India
+            Basement, Plot-4, Road-17, near Deepak Book Store, <br>
+            Sector 19, New Panvel East, Panvel, <br>
+            Navi Mumbai, Panvel, Maharashtra 410206
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-semibold mb-2">Phone</h3>
           <p class="text-gray-400">
-            +91 98765 43210
+            +91 08355 887931
           </p>
         </div>
 
-        <div>
+        <!-- <div>
           <h3 class="text-xl font-semibold mb-2">Email</h3>
           <p class="text-gray-400">
-            contact@ironcoregym.com
+            contact@Bobs Gymgym.com
           </p>
-        </div>
+        </div> -->
 
       </div>
 
@@ -78,3 +74,56 @@
 
   </div>
 </template>
+
+
+<script>
+
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+      error: ""
+    }
+  },
+  methods: {
+    sendWhatsApp() {
+      this.error = ""
+
+      // Empty validation
+      if (!this.name || !this.email || !this.message) {
+        this.error = "All fields are required."
+        return
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+      if (!emailRegex.test(this.email)) {
+        this.error = "Please enter a valid email address."
+        return
+      }
+
+      const phone = "9108355887931"
+
+      const text =
+        `New Contact Request
+
+Name: ${this.name}
+Email: ${this.email}
+
+Message:
+${this.message}`
+
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`
+
+      window.open(url, "_blank")
+
+      this.name = ""
+      this.email = ""
+      this.message = ""
+    }
+  }
+}
+</script>

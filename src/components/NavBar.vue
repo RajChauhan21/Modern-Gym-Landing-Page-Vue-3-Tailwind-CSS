@@ -4,7 +4,7 @@
 
             <!-- Logo -->
             <h1 class="text-2xl font-bold text-white">
-                Iron<span class="text-red-500">Core</span>
+                Bobs<span class="text-red-500">Gym</span>
             </h1>
 
             <!-- Desktop Menu -->
@@ -66,7 +66,7 @@ export default {
         },
         joinNow() {
             const phone = "919321834217"
-            const message = "Hello, I want to join IronCore Gym. Please share membership details."
+            const message = "Hello, I want to join Bobs Gym. Please share membership details."
 
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 

@@ -60,8 +60,8 @@ export default {
 
         },
         joinNow(message) {
-            const phone = "919321834217"
-            // const message = "Hello, I want to join IronCore Gym. Please share membership details."
+            const phone = "9108355887931"
+            // const message = "Hello, I want to join Bobs Gym. Please share membership details."
             this.message = message;
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 
@@ -85,7 +85,7 @@ export default {
         <NavBar />
         <!-- HERO -->
         <!-- HERO -->
-        <section class="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden">
+        <section class="relative py-20 flex items-center px-6 md:px-12 lg:px-20 sm:px-6 overflow-hidden">
             <!-- Background diagonal shape (desktop only) -->
             <div class="absolute top-0 right-0 w-full h-full lg:w-2/3 lg:h-full hidden lg:block">
                 <div class="absolute inset-0 bg-red-600/10"
@@ -110,18 +110,18 @@ export default {
             </div>
 
             <!-- Text Content - Centered on Mobile, Left on Desktop -->
-            <div class="relative z-10 max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <div class="relative z-10 max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-left lg:text-left">
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
                     Transform Your <span class="text-red-500">Body</span>
                 </h1>
 
-                <p class="mt-6 text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
+                <p class="mt-6 text-lg text-gray-300 max-w-xl mx-auto lg:mx-0 sm:mx-0">
                     Train with the best coaches and world-class equipment.
                     Start your fitness journey today.
                 </p>
 
                 <div class="mt-8 flex gap-4 justify-center lg:justify-start">
-                    <button @click="joinNow('Hello, I want to join IronCore Gym. Please share membership details.')"
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. Please share membership details.')"
                         class="px-8 py-3 bg-red-500 rounded-xl font-semibold hover:bg-red-600 transition shadow-lg">
                         Join Now
                     </button>
@@ -250,54 +250,88 @@ export default {
         <section id="plans" class="py-20 px-6 max-w-7xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-14">Membership Plans</h2>
 
-            <div class="grid md:grid-cols-3 gap-10">
+            <div class="grid md:grid-cols-5 gap-10">
 
                 <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
-                    <h3 class="text-xl font-semibold">Basic</h3>
-                    <p class="text-4xl font-bold mt-4">₹999</p>
-                    <p class="text-gray-400 mt-2">per month</p>
+                    <h3 class="text-xl font-semibold">Have-A-Look</h3>
+                    <p class="text-4xl font-bold mt-4">₹500</p>
+                    <p class="text-gray-400 mt-2">1 Day</p>
 
                     <ul class="mt-6 space-y-2 text-gray-400">
-                        <li>Gym Access</li>
-                        <li>Locker Room</li>
-                        <li>Basic Equipment</li>
+                        <li>Best for Exploring</li>
+                        <li>Cost-Effective</li>
+                        <li>Includes Cardio</li>
                     </ul>
 
-                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Basic Plan.')"
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Day-Have-A-Look Plan.')"
                         class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
                         Choose Plan
                     </button>
                 </div>
 
-                <div data-aos="fade-right" class="bg-red-500 text-black p-10 rounded-2xl scale-105">
-                    <h3 class="text-xl font-semibold">Pro</h3>
-                    <p class="text-4xl font-bold mt-4">₹1999</p>
-                    <p class="mt-2">per month</p>
+                <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
+                    <h3 class="text-xl font-semibold">Warm-Up</h3>
+                    <p class="text-4xl font-bold mt-4">₹2000</p>
+                    <p class="text-gray-400 mt-2">1 month</p>
 
-                    <ul class="mt-6 space-y-2">
-                        <li>Everything in Basic</li>
-                        <li>Group Classes</li>
-                        <li>Trainer Support</li>
+                    <ul class="mt-6 space-y-2 text-gray-400">
+                        <li>Best for Beginners</li>
+                        <li>Short Term Access</li>
+                        <li>Includes Cardio</li>
                     </ul>
 
-                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Pro Plan.')"
-                        class="mt-6 w-full py-3 bg-black text-white rounded-xl">
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Month-Warm-Up Plan.')"
+                        class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
+                    <h3 class="text-xl font-semibold">Basic</h3>
+                    <p class="text-4xl font-bold mt-4">₹4500</p>
+                    <p class="text-gray-400 mt-2">3 months</p>
+
+                    <ul class="mt-6 space-y-2 text-gray-400">
+                        <li>Best for Amateurs</li>
+                        <li>Ready for Commitment</li>
+                        <li>Includes Cardio</li>
+                    </ul>
+
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 3 Months-Basic Plan.')"
+                        class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
+                    <h3 class="text-xl font-semibold">Pro</h3>
+                    <p class="text-4xl font-bold mt-4">₹6000</p>
+                    <p class="text-gray-400 mt-2">6 months</p>
+
+                    <ul class="mt-6 space-y-2 text-gray-400">
+                        <li>Best for Intermediates</li>
+                        <li>Being Consistent</li>
+                        <li>Includes Cardio</li>
+                    </ul>
+
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 6 Months-Pro Plan.')"
+                        class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
                         Choose Plan
                     </button>
                 </div>
 
                 <div data-aos="fade-right" class="bg-gray-900 p-10 rounded-2xl">
                     <h3 class="text-xl font-semibold">Elite</h3>
-                    <p class="text-4xl font-bold mt-4">₹3999</p>
-                    <p class="text-gray-400 mt-2">per month</p>
+                    <p class="text-4xl font-bold mt-4">₹8000</p>
+                    <p class="text-gray-400 mt-2">Yearly</p>
 
                     <ul class="mt-6 space-y-2 text-gray-400">
-                        <li>Everything in Pro</li>
-                        <li>Personal Trainer</li>
-                        <li>Diet Plan</li>
+                        <li>Best for Professionals</li>
+                        <li>Beast Mode - ON</li>
+                        <li>Includes Cardio</li>
                     </ul>
 
-                    <button @click="joinNow('Hello, I want to join IronCore Gym. And want to choose Elite Plan.')"
+                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose Yearly-Elite Plan.')"
                         class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
                         Choose Plan
                     </button>
@@ -375,30 +409,34 @@ export default {
                         <div>
                             <h3 class="text-xl font-semibold text-red-500">Address</h3>
                             <p class="text-gray-400 mt-2">
-                                BOB'S Gym, New Panvel East,<br>
-                                Navi Mumbai, Maharashtra, India
+                                <!-- BOB'S Gym, New Panvel East,<br>
+                                Navi Mumbai, Maharashtra, India -->
+
+                                Basement, Plot-4, Road-17, near Deepak Book Store, <br>
+                                Sector 19, New Panvel East, Panvel, <br>
+                                Navi Mumbai, Panvel, Maharashtra 410206
                             </p>
                         </div>
 
                         <div>
                             <h3 class="text-xl font-semibold text-red-500">Phone</h3>
                             <p class="text-gray-400 mt-2">
-                                +91 98765 43210
+                                +91 08355 887931
                             </p>
                         </div>
 
-                        <div>
+                        <!-- <div>
                             <h3 class="text-xl font-semibold text-red-500">Email</h3>
                             <p class="text-gray-400 mt-2">
                                 contact@bobsgym.com
                             </p>
-                        </div>
+                        </div> -->
 
                         <div>
                             <h3 class="text-xl font-semibold text-red-500">Opening Hours</h3>
                             <p class="text-gray-400 mt-2">
-                                Monday – Saturday: 6:00 AM – 10:00 PM <br>
-                                Sunday: 8:00 AM – 2:00 PM
+                                Monday – Saturday: 5:00 AM – 10:00 PM <br>
+                                Sunday: 5:00 AM – 9:00 PM
                             </p>
                         </div>
 
@@ -427,7 +465,7 @@ export default {
         </section>
         <!-- FOOTER -->
         <footer class="py-10 text-center text-gray-500 border-t border-gray-800">
-            © 2026 IronCore Gym. All rights reserved.
+            © 2026 Bobs Gym. All rights reserved.
         </footer>
 
     </div>

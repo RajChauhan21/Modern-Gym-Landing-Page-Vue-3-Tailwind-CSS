@@ -2,9 +2,9 @@
   <div class="bg-gray-950 text-white min-h-screen">
 
     <!-- HEADER -->
-    <section class="py-24 text-center">
+    <section class="py-14 px-2 text-center">
       <h1 class="text-5xl font-bold">
-        About <span class="text-red-500">IronCore Gym</span>
+        About <span class="text-red-500">Bobs Gym</span>
       </h1>
       <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
         We help people transform their bodies and build confidence through
@@ -13,17 +13,14 @@
     </section>
 
     <!-- STORY -->
-    <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+    <section class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
 
-      <img
-        class="rounded-2xl"
-        src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f"
-      />
+      <img class="rounded-2xl" , :src="image" alt="Gym Image" />
 
       <div>
         <h2 class="text-3xl font-bold mb-4">Our Story</h2>
         <p class="text-gray-400 mb-4">
-          IronCore Gym started with one goal — helping people achieve their
+          Bobs Gym started with one goal — helping people achieve their
           fitness dreams with the best environment and coaching.
         </p>
 
@@ -64,3 +61,20 @@
 
   </div>
 </template>
+
+
+<script>
+
+import basic_image from '../assets/image.png'
+
+export default {
+
+  data() {
+    return {
+      image: basic_image
+    }
+  }
+}
+
+
+</script>
