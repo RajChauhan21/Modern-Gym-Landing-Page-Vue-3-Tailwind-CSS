@@ -1,10 +1,11 @@
 <script>
 import NavBar from './NavBar.vue';
 import bob_image from '../assets/bobs_gym.png'
+import InfiniteCarousel from './InfiniteCarousel.vue';
 
 export default {
     components: {
-        NavBar
+        NavBar,InfiniteCarousel
     },
     data() {
         return {
@@ -133,7 +134,7 @@ export default {
                 </div>
             </div>
         </section>
-
+        <InfiniteCarousel/>
         <!-- FEATURES -->
         <section class="py-8 px-6 max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-14">Our Programs</h2>
