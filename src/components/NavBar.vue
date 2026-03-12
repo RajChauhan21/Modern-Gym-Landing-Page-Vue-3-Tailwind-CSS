@@ -4,7 +4,7 @@
 
             <!-- Logo -->
             <h1 class="text-2xl font-bold text-white">
-                Bobs<span class="text-red-500">Gym</span>
+                Bob's<span class="text-red-500">Gym</span>
             </h1>
 
             <!-- Desktop Menu -->

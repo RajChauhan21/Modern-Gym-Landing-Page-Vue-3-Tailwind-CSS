@@ -4,7 +4,7 @@
     <!-- HEADER -->
     <section class="py-14 px-2 text-center">
       <h1 class="text-5xl font-bold">
-        About <span class="text-red-500">Bobs Gym</span>
+        About <span class="text-red-500">Bob's Gym</span>
       </h1>
       <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
         We help people transform their bodies and build confidence through
@@ -20,7 +20,7 @@
       <div>
         <h2 class="text-3xl font-bold mb-4">Our Story</h2>
         <p class="text-gray-400 mb-4">
-          Bobs Gym started with one goal — helping people achieve their
+          Bob's Gym started with one goal — helping people achieve their
           fitness dreams with the best environment and coaching.
         </p>
 
