@@ -77,7 +77,7 @@ export default {
             this.isOpen = !this.isOpen
         },
         joinNow() {
-            const phone = "919321834217"
+            const phone = "9183558 87931"
             const message = "Hello, I want to join Bobs Gym. Please share membership details."
 
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
