@@ -5,7 +5,7 @@ import InfiniteCarousel from './InfiniteCarousel.vue';
 
 export default {
     components: {
-        NavBar,InfiniteCarousel
+        NavBar, InfiniteCarousel
     },
     data() {
         return {
@@ -134,7 +134,7 @@ export default {
                 </div>
             </div>
         </section>
-        <InfiniteCarousel/>
+        <InfiniteCarousel />
         <!-- FEATURES -->
         <section class="py-8 px-6 max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-14">Our Programs</h2>
@@ -264,7 +264,8 @@ export default {
                         <li>Includes Cardio</li>
                     </ul>
 
-                    <button @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Day Have-A-Look Plan.')"
+                    <button
+                        @click="joinNow('Hello, I want to join Bobs Gym. And want to choose 1 Day Have-A-Look Plan.')"
                         class="mt-6 w-full py-3 bg-red-500 rounded-xl hover:bg-red-600">
                         Choose Plan
                     </button>
@@ -422,7 +423,7 @@ export default {
                         <div>
                             <h3 class="text-xl font-semibold text-red-500">Phone</h3>
                             <p class="text-gray-400 mt-2">
-                                +91 08355 887931
+                                +91 83558 87931
                             </p>
                         </div>
 
@@ -465,8 +466,37 @@ export default {
 
         </section>
         <!-- FOOTER -->
-        <footer class="py-10 text-center text-gray-500 border-t border-gray-800">
-            © 2026 Bob's Gym. All rights reserved.
+        <footer class="py-6 border-t border-gray-800 text-gray-400
+         flex flex-col md:flex-row items-center
+         justify-between px-6 md:px-12">
+
+            <!-- Left -->
+            <div class="text-center md:text-left text-sm">
+                <p>  © 2026 Bob's Gym. All rights reserved.</p>
+
+                <p class="mt-1 text-gray-500">
+                    Created by
+                    <a href="https://www.linkedin.com/in/raj-chauhan-5bb540312/" target="_blank"
+                        class="text-red-500 hover:text-red-400 font-medium transition">
+                        Raj Chauhan
+                    </a>
+                </p>
+            </div>
+
+            <!-- Right -->
+            <a href="https://wa.me/918355887931" target="_blank" class="mt-4 md:mt-0 flex items-center gap-2
+           hover:text-green-500 transition duration-300">
+
+                <!-- WhatsApp Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M20.52 3.48A11.94 11.94 0 0 0 12.05 0C5.46 0 .11 5.35.11 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.64a11.93 11.93 0 0 0 5.78 1.48h.01c6.59 0 11.94-5.35 11.94-11.94 0-3.19-1.24-6.19-3.48-8.42z" />
+                </svg>
+
+                <span class="text-sm">Chat on WhatsApp</span>
+
+            </a>
+
         </footer>
 
     </div>
