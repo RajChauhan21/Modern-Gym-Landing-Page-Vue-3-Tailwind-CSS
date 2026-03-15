@@ -2,6 +2,7 @@
 import NavBar from './NavBar.vue';
 import bob_image from '../assets/bobs_gym.png'
 import InfiniteCarousel from './InfiniteCarousel.vue';
+import wa_svg from '../assets/wa_svg.svg'
 
 export default {
     components: {
@@ -15,7 +16,8 @@ export default {
             programs: 0,
             access: 0,
             started: false,
-            image: bob_image
+            image: bob_image,
+            waIcon: wa_svg
         }
     },
     mounted() {
@@ -472,7 +474,7 @@ export default {
 
             <!-- Left -->
             <div class="text-center md:text-left text-sm">
-                <p>  © 2026 Bob's Gym. All rights reserved.</p>
+                <p> © 2026 Bob's Gym. All rights reserved.</p>
 
                 <p class="mt-1 text-gray-500">
                     Created by
@@ -488,10 +490,7 @@ export default {
            hover:text-green-500 transition duration-300">
 
                 <!-- WhatsApp Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M20.52 3.48A11.94 11.94 0 0 0 12.05 0C5.46 0 .11 5.35.11 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.64a11.93 11.93 0 0 0 5.78 1.48h.01c6.59 0 11.94-5.35 11.94-11.94 0-3.19-1.24-6.19-3.48-8.42z" />
-                </svg>
+                <img :src="waIcon" class="w-6 h-6" />
 
                 <span class="text-sm">Chat on WhatsApp</span>
 
